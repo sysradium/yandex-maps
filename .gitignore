@@ -1,0 +1,14 @@
+db.sqlite3
+*.pyc
+*.sublime-project
+*.sublime-workspace
+.idea/*
+.fab_tasks~
+.env
+*.db
+.cache
+.coverage
+.ipython
+.bash_history
+.local
+.tox/

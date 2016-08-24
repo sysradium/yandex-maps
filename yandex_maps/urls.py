@@ -1,9 +1,11 @@
 try:
-    from django.conf.urls import patterns, url, handler500
+    from django.conf.urls import url, handler500
 except ImportError:
-    from django.conf.urls.defaults import patterns, url, handler500
+    from django.conf.urls.defaults import url, handler500
 
 
-urlpatterns = patterns('yandex_maps.views',
-    url(r'^map/(?P<map_id>\d+)/$', 'yandex_map', name='yandex_map'),
-)
+from .views import yandex_map
+
+urlpatterns = [
+    url(r'^map/(?P<map_id>\d+)/$', yandex_map, name='yandex_map'),
+]

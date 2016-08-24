@@ -6,7 +6,7 @@ Yandex.Maps API wrapper
 
 import xml.dom.minidom
 import urllib
-from yandex_maps import http
+import requests
 
 STATIC_MAPS_URL = 'http://static-maps.yandex.ru/1.x/?'
 HOSTED_MAPS_URL = 'http://maps.yandex.ru/?'
@@ -52,8 +52,8 @@ def geocode(api_key, address, timeout=2):
 
 def _get_geocode_xml(api_key, address, timeout=2):
     url = _get_geocode_url(api_key, address)
-    status_code, response = http.request('GET', url, timeout=timeout)
-    return response
+    response = requests.get(url, timeout=timeout)
+    return response.text
 
 def _get_geocode_url(api_key, address):
     if isinstance(address, unicode):

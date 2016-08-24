@@ -4,6 +4,8 @@ from django.contrib.gis.geos import Point
 from django.utils.html import conditional_escape
 from yandex_maps.models import MapAndAddress, get_static_map_url
 from yandex_maps.api import get_external_map_url
+from django.utils.safestring import mark_safe
+
 
 register = template.Library()
 
@@ -76,5 +78,5 @@ def yandex_map(address, width, height, zoom=14, attrs=''):
 
     '''
     url = _url_for(address, False, width, height, zoom)
-    return "<img src='%s' width='%s' height='%s' alt='%s' %s />" % (
-             url, width, height, conditional_escape(address), attrs)
+    return mark_safe(u"<img src='{}' width='{}' height='{}' alt='{}' {} />".format(
+             url, width, height, conditional_escape(address), attrs))

@@ -22,8 +22,9 @@ SECRET_KEY = '123'
 YANDEX_MAPS_API_KEY = "AOmQeUwBAAAAxp1AOQIAlTD0uSCCp1ukf-GmyqC5tbvCGAgAAAAAAAAAAAAeazHdQX6EPpcOJnuUPR-QlXyJPQ=="
 
 INSTALLED_APPS=(
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'yandex_maps',
     'test_app',
 #    'devserver',
-    'south',
 )
